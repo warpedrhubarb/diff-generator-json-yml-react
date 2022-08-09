@@ -1,22 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
+import FirstItem from './components/FirstItem';
+import SecondItem from './components/SecondItem';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h2 className="Title">Difference Generator for JSON and YML files</h2>
+        <div className="row">
+          <FirstItem className="code-area" />
+          <SecondItem className="code-area" />
+        </div>
+        <button className="button" role="button"><span>Generate Difference</span></button>
       </header>
     </div>
   );
