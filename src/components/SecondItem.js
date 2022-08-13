@@ -1,16 +1,13 @@
 import React from 'react';
 import CodeEditor from '@uiw/react-textarea-code-editor';
 
-export default function SecondItem() {
-  const [code, setCode] = React.useState(
-    `function add(a, b) {\n  return a + b;\n}`
-  );
+export default function SecondItem({ file2, setFile2 }) {
   return (
     <CodeEditor
-      value={code}
+      value={file2}
       language="js"
-      placeholder="Please enter JS code."
-      onChange={(evn) => setCode(evn.target.value)}
+      placeholder="Please enter JSON or YAML data and choose format from the dropdown menu above."
+      onChange={(evn) => setFile2(evn.target.value)}
       padding={15}
       style={{
         overflow: "auto",

@@ -1,15 +1,17 @@
+import React from 'react';
 import CodeEditor from '@uiw/react-textarea-code-editor';
 
-export default function FirstItem({ file1, setFile1 }) {
+export default function Result({ result, setResult }) {
   return (
     <CodeEditor
-      value={file1}
+      value={result}
       language="js"
-      placeholder="Please enter JSON or YAML data and choose format from the dropdown menu above."
-      onChange={(evn) => setFile1(evn.target.value)}
+      placeholder="Result will be shown here."
+      onChange={(evn) => setResult(evn.target.value)}
       padding={15}
       style={{
-        width: "90%",
+        overflow: "auto",
+        width: "100%",
         minHeight: "50vh",
         fontSize: "1rem",
         borderRadius: "1rem",
@@ -18,5 +20,5 @@ export default function FirstItem({ file1, setFile1 }) {
         fontFamily: 'ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace',
       }}
     />
-  )
-};
+  );
+}
