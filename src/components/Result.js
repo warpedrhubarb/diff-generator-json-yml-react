@@ -5,7 +5,7 @@ export default function Result({ result, setResult }) {
   return (
     <CodeEditor
       value={result}
-      language="js"
+      language="json"
       placeholder="Result will be shown here."
       onChange={(evn) => setResult(evn.target.value)}
       padding={15}

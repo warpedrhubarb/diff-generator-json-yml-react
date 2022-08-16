@@ -25,10 +25,24 @@
   overflow: hidden;
 }
 
+.firstSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.secondSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.buttonsRow {
+  display: flex;
+  flex-direction: row;
+  margin-left: 1em;
+}
+
 .code-area {
-  -ms-overflow-style: none; /* for Internet Explorer, Edge */
-  scrollbar-width: none; /* for Firefox */
-  overflow-y: scroll;
+  overflow: auto;
 }
 
 .button {

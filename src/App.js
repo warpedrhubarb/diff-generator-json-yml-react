@@ -12,17 +12,32 @@ function App() {
 
   const [result, setResult] = React.useState();
 
+  const [fileFormat1, setFileFormat1] = React.useState({ format: 'JSON' });
+
+  const [fileFormat2, setFileFormat2] = React.useState({ format: 'JSON' });
+
   return (
     <div className="App">
       <header className="App-header">
         <h2 className="Title">Difference Generator for JSON and YML files</h2>
         <div className="row">
-          <FirstItem file1={file1} setFile1={setFile1} className="code-area" />
-          <SecondItem file2={file2} setFile2={setFile2} className="code-area" />
+          <div className="firstSection">
+            <div className="buttonsRow">
+              <button onClick={() => setFileFormat1('JSON')}>JSON 1</button>
+              <button onClick={() => setFileFormat1('YAML')}>YAML 1</button>
+            </div>
+            <FirstItem fileFormat1={fileFormat1} file1={file1} setFile1={setFile1} className="code-area" />
+          </div>
+          <div className="secondSection">
+            <div className="buttonsRow">
+              <button onClick={() => setFileFormat2('JSON')}>JSON 2</button>
+              <button onClick={() => setFileFormat2('YAML')}>YAML 2</button>
+            </div>
+            <SecondItem fileFormat2={fileFormat2} file2={file2} setFile2={setFile2} className="code-area" />
+          </div>
         </div>
         <button onClick={() => {
-          const result = getDiff(file1, file2);
-          console.log(result);
+          const result = getDiff(file1, file2, fileFormat1, fileFormat2);
           setResult(result);
         }} className="button" role="button"><span>Generate Difference</span></button>
         <div className="row">
