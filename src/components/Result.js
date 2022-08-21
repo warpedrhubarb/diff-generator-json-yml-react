@@ -12,7 +12,7 @@ export default function Result({ result, setResult }) {
       style={{
         overflow: "auto",
         width: "100%",
-        minHeight: "50vh",
+        height: "50vh",
         fontSize: "1rem",
         borderRadius: "1rem",
         margin: "1em",

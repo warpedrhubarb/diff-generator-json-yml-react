@@ -20,19 +20,25 @@
 .row {
   display: flex;
   flex-direction: row;
-  min-width: 60%;
+  justify-content: space-between;
+  width: 90vw;
   margin: 1em;
-  overflow: hidden;
 }
 
 .firstSection {
   display: flex;
   flex-direction: column;
+  width: 48%;
 }
 
 .secondSection {
   display: flex;
   flex-direction: column;
+  width: 48%;
+}
+
+.result {
+  width: 100%;
 }
 
 .buttonsRow {

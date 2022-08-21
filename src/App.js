@@ -23,15 +23,15 @@ function App() {
         <div className="row">
           <div className="firstSection">
             <div className="buttonsRow">
-              <button onClick={() => setFileFormat1('JSON')}>JSON 1</button>
-              <button onClick={() => setFileFormat1('YAML')}>YAML 1</button>
+              <button onClick={() => setFileFormat1('JSON')}>JSON</button>
+              <button onClick={() => setFileFormat1('YAML')}>YAML</button>
             </div>
             <FirstItem fileFormat1={fileFormat1} file1={file1} setFile1={setFile1} className="code-area" />
           </div>
           <div className="secondSection">
             <div className="buttonsRow">
-              <button onClick={() => setFileFormat2('JSON')}>JSON 2</button>
-              <button onClick={() => setFileFormat2('YAML')}>YAML 2</button>
+              <button onClick={() => setFileFormat2('JSON')}>JSON</button>
+              <button onClick={() => setFileFormat2('YAML')}>YAML</button>
             </div>
             <SecondItem fileFormat2={fileFormat2} file2={file2} setFile2={setFile2} className="code-area" />
           </div>
@@ -41,7 +41,9 @@ function App() {
           setResult(result);
         }} className="button" role="button"><span>Generate Difference</span></button>
         <div className="row">
-          <Result result={result} className="code-area" />
+          <div className="result">
+            <Result result={result} className="code-area" />
+          </div>
         </div>
       </header>
     </div>

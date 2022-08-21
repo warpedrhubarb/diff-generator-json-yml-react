@@ -9,8 +9,8 @@ export default function FirstItem({ fileFormat1, file1, setFile1 }) {
       onChange={(evn) => setFile1(evn.target.value)}
       padding={15}
       style={{
-        width: "90%",
         minHeight: "50vh",
+        width: "100%",
         fontSize: "1rem",
         borderRadius: "1rem",
         margin: "1em",
