@@ -4,6 +4,7 @@ import FirstItem from './components/FirstItem';
 import SecondItem from './components/SecondItem';
 import Result from './components/Result';
 import getDiff from "./getDiff";
+import Select from 'react-select';
 
 function App() {
   const [file1, setFile1] = React.useState();
@@ -16,6 +17,15 @@ function App() {
 
   const [fileFormat2, setFileFormat2] = React.useState({ format: 'JSON' });
 
+  const options = [
+    { value: 'JSON', label: 'JSON' },
+    { value: 'YAML', label: 'YAML' }
+  ]
+
+  const styles = {
+    option: 'black'
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -23,15 +33,13 @@ function App() {
         <div className="row">
           <div className="firstSection">
             <div className="buttonsRow">
-              <button onClick={() => setFileFormat1('JSON')}>JSON</button>
-              <button onClick={() => setFileFormat1('YAML')}>YAML</button>
+              <Select options={options} onChange={(e) => setFileFormat1(e.value)}/>
             </div>
             <FirstItem fileFormat1={fileFormat1} file1={file1} setFile1={setFile1} className="code-area" />
           </div>
           <div className="secondSection">
             <div className="buttonsRow">
-              <button onClick={() => setFileFormat2('JSON')}>JSON</button>
-              <button onClick={() => setFileFormat2('YAML')}>YAML</button>
+              <Select styles={styles} options={options} onChange={(e) => setFileFormat2(e.value)}/>
             </div>
             <SecondItem fileFormat2={fileFormat2} file2={file2} setFile2={setFile2} className="code-area" />
           </div>
