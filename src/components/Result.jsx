@@ -7,17 +7,16 @@ export default function Result({ result, setResult }) {
       value={result}
       language="json"
       placeholder="Result will be shown here."
-      onChange={(evn) => setResult(evn.target.value)}
+      onChange={(event) => setResult(event.target.value)}
       padding={15}
       style={{
         overflow: "auto",
         width: "100%",
-        height: "50vh",
+        height: "80vh",
         fontSize: "1rem",
         borderRadius: "1rem",
-        margin: "1em",
         backgroundColor: "#262626",
-        fontFamily: 'ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace',
+        fontFamily: 'ui-monospace, SFMono-Regular, SF Mono, Consolas, Liberation Mono, Menlo, monospace',
       }}
     />
   );
