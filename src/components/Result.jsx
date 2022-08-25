@@ -1,4 +1,3 @@
-import React from 'react';
 import CodeEditor from '@uiw/react-textarea-code-editor';
 
 export default function Result({ result, setResult }) {
@@ -7,7 +6,7 @@ export default function Result({ result, setResult }) {
       value={result}
       language="json"
       placeholder="Result will be shown here."
-      onChange={(event) => setResult(event.target.value)}
+      onChange={(e) => setResult(e.target.value)}
       padding={15}
       style={{
         overflow: "auto",

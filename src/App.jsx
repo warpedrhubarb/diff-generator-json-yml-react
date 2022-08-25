@@ -8,15 +8,28 @@ import Result from './components/Result';
 import getDiff from "./getDiff";
 
 function App() {
-  const [file1, setFile1] = React.useState();
+  const [file1, setFile1] = React.useState({
+    data: "",
+    format: "JSON"
+  });
 
-  const [file2, setFile2] = React.useState();
+  const [file2, setFile2] = React.useState({
+    data: "",
+    format: "JSON"
+  });
 
   const [result, setResult] = React.useState();
 
-  const [fileFormat1, setFileFormat1] = React.useState('JSON' );
+  // const [fileFormat1, setFileFormat1] = React.useState('JSON' );
+  //
+  // const [fileFormat2, setFileFormat2] = React.useState('JSON' );
 
-  const [fileFormat2, setFileFormat2] = React.useState('JSON' );
+  const handleFormatChange1 = (events, e) => {
+    setFile1((prev) => ({...prev, format: e.target.value}));
+  };
+  const handleFormatChange2 = (events, e) => {
+    setFile2((prev) => ({...prev, format: e.target.value}));
+  };
 
   return (
     <div className="bg-dark py-4">
@@ -29,29 +42,29 @@ function App() {
             <DropdownButton
               role="button"
               className="ms-3"
-              title={fileFormat1}
+              title={file1.format}
               variant="secondary"
               menuVariant="dark"
-              onSelect={(event, e) => setFileFormat1(e.target.value)}
+              onSelect={handleFormatChange1}
             >
               <Dropdown.Item as="option" value='JSON'>JSON</Dropdown.Item>
               <Dropdown.Item as="option" value='YAML'>YAML</Dropdown.Item>
             </DropdownButton>
-            <FirstItem fileFormat1={fileFormat1} file1={file1} setFile1={setFile1} />
+            <FirstItem fileFormat1={file1.format} file1={file1} setFile1={setFile1} />
           </section>
           <section className="col-lg-6">
             <DropdownButton
               role="button"
               className="ms-3"
-              title={fileFormat2}
+              title={file2.format}
               variant="secondary"
               menuVariant="dark"
-              onSelect={(event, e) => setFileFormat2(e.target.value)}
+              onSelect={handleFormatChange2}
             >
               <Dropdown.Item as="option" value='JSON'>JSON</Dropdown.Item>
               <Dropdown.Item as="option" value='YAML'>YAML</Dropdown.Item>
             </DropdownButton>
-            <SecondItem fileFormat2={fileFormat2} file2={file2} setFile2={setFile2} />
+            <SecondItem fileFormat2={file2.format} file2={file2} setFile2={setFile2} />
           </section>
         </section>
 
@@ -59,7 +72,7 @@ function App() {
           <button
             href="#result"
             className="button"
-            onClick={() => setResult(getDiff(file1, file2, fileFormat1, fileFormat2))}>
+            onClick={() => setResult(getDiff(file1, file2))}>
             <span>Generate Difference</span>
           </button>
         </a>
