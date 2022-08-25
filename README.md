@@ -4,7 +4,7 @@
 
 ## Description
 
-A React single page application tool for generating difference between two JSON and/or YML files. This is a GUI remake of <a href="https://github.com/warpedrhubarb/diff-generator-json-yml/">a command line tool I have built previously.<a>
+A React single page application tool for generating difference between two JSON and/or YML files. This is a GUI remake of <a href="https://github.com/warpedrhubarb/diff-generator-json-yml/">this command line tool.<a>
 
 ## Installation
 
