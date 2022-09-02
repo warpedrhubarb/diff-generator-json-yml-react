@@ -20,17 +20,6 @@ function App() {
 
   const [result, setResult] = React.useState();
 
-  // const [fileFormat1, setFileFormat1] = React.useState('JSON' );
-  //
-  // const [fileFormat2, setFileFormat2] = React.useState('JSON' );
-
-  const handleFormatChange1 = (events, e) => {
-    setFile1((prev) => ({...prev, format: e.target.value}));
-  };
-  const handleFormatChange2 = (events, e) => {
-    setFile2((prev) => ({...prev, format: e.target.value}));
-  };
-
   return (
     <div className="bg-dark py-4">
       <header className="pb-3 mb-4 border-bottom">
@@ -40,15 +29,13 @@ function App() {
         <section className="row col-12">
           <section className="col-lg-6">
             <DropdownButton
-              role="button"
               className="ms-3"
               title={file1.format}
               variant="secondary"
               menuVariant="dark"
-              onSelect={handleFormatChange1}
             >
-              <Dropdown.Item as="option" value='JSON'>JSON</Dropdown.Item>
-              <Dropdown.Item as="option" value='YAML'>YAML</Dropdown.Item>
+              <Dropdown.Item onClick={() => setFile1({...file1, format: 'JSON'})}>JSON</Dropdown.Item>
+              <Dropdown.Item onClick={() => setFile1({...file1, format: 'YAML'})}>YAML</Dropdown.Item>
             </DropdownButton>
             <FirstItem fileFormat1={file1.format} file1={file1} setFile1={setFile1} />
           </section>
@@ -59,10 +46,9 @@ function App() {
               title={file2.format}
               variant="secondary"
               menuVariant="dark"
-              onSelect={handleFormatChange2}
             >
-              <Dropdown.Item as="option" value='JSON'>JSON</Dropdown.Item>
-              <Dropdown.Item as="option" value='YAML'>YAML</Dropdown.Item>
+              <Dropdown.Item onClick={() => setFile2({...file2, format: 'JSON'})}>JSON</Dropdown.Item>
+              <Dropdown.Item onClick={() => setFile2({...file2, format: 'YAML'})}>YAML</Dropdown.Item>
             </DropdownButton>
             <SecondItem fileFormat2={file2.format} file2={file2} setFile2={setFile2} />
           </section>
@@ -70,7 +56,6 @@ function App() {
 
         <a href="#result">
           <button
-            href="#result"
             className="button"
             onClick={() => setResult(getDiff(file1, file2))}>
             <span>Generate Difference</span>
