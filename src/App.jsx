@@ -26,8 +26,8 @@ function App() {
         <h2 className="m-2 text-center text-white">Difference Generator for JSON and YML files</h2>
       </header>
       <main className="container d-flex flex-column align-items-center">
-        <section className="row col-12">
-          <section className="col-lg-6">
+        <section className="col-12 row">
+          <section className="col-lg-6 mb-5">
             <DropdownButton
               className="ms-3"
               title={file1.format}
@@ -39,7 +39,7 @@ function App() {
             </DropdownButton>
             <FirstItem fileFormat1={file1.format} file1={file1} setFile1={setFile1} />
           </section>
-          <section className="col-lg-6">
+          <section className="col-lg-6 mb-5">
             <DropdownButton
               role="button"
               className="ms-3"
@@ -56,14 +56,16 @@ function App() {
 
         <a href="#result">
           <button
-            className="button"
+            className="button mb-5"
             onClick={() => setResult(getDiff(file1, file2))}>
             <span>Generate Difference</span>
           </button>
         </a>
 
         <section className="col-12 row" id="result">
-          <Result result={result}/>
+          <section className="col-lg-12 mb-5">
+            <Result result={result}/>
+          </section>
         </section>
       </main>
     </div>

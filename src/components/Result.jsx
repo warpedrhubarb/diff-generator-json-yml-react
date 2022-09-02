@@ -10,10 +10,10 @@ export default function Result({ result, setResult }) {
       padding={15}
       style={{
         overflow: "auto",
-        width: "100%",
         height: "80vh",
         fontSize: "1rem",
         borderRadius: "1rem",
+        margin: "1rem",
         backgroundColor: "#262626",
         fontFamily: 'ui-monospace, SFMono-Regular, SF Mono, Consolas, Liberation Mono, Menlo, monospace',
       }}
