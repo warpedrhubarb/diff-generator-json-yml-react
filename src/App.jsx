@@ -2,6 +2,8 @@ import './App.css';
 import React from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 import FirstItem from './components/FirstItem';
 import SecondItem from './components/SecondItem';
 import Result from './components/Result';
@@ -20,8 +22,32 @@ function App() {
 
   const [result, setResult] = React.useState();
 
+  const [show, setShow] = React.useState({
+    visibility: false,
+    invalidFormat: '',
+  });
+
+  const handleClose = () => setShow({
+    invalidFormat: '',
+    visibility: false,
+  });
+  const handleShow = (invalidFormat) => setShow({
+    invalidFormat: invalidFormat,
+    visibility: true,
+  });
+
   return (
     <div className="bg-dark py-4">
+
+      <Modal show={show.visibility} onHide={handleClose}>
+        <Modal.Body>Inserted file is not a valid {show.invalidFormat}</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
       <header className="pb-3 mb-4 border-bottom">
         <h2 className="m-2 text-center text-white">Difference Generator for JSON and YML files</h2>
       </header>
@@ -57,7 +83,13 @@ function App() {
         <a href="#result">
           <button
             className="button mb-5"
-            onClick={() => setResult(getDiff(file1, file2))}>
+            onClick={() => {
+              try {
+                setResult(getDiff(file1, file2));
+              } catch (error) {
+                handleShow(error.name === 'YAMLException' ? 'YAML' : 'JSON');
+              }
+            }}>
             <span>Generate Difference</span>
           </button>
         </a>
